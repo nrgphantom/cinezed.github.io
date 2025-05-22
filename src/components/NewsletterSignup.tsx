@@ -45,12 +45,7 @@ const NewsletterSignup: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-md">
-      <h3 className="text-sm font-semibold mb-2 text-white">Subscribe to Our Newsletter</h3>
-      <p className="text-xs text-gray-400 mb-4">
-        Get the latest film recommendations and updates delivered to your inbox
-      </p>
-      
+    <div className="w-full">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex space-x-2">
           <FormField
@@ -60,19 +55,19 @@ const NewsletterSignup: React.FC = () => {
               <FormItem className="flex-1">
                 <FormControl>
                   <Input 
-                    placeholder="Your email address" 
+                    placeholder="Subscribe to newsletter" 
                     {...field} 
-                    className="bg-cinezed-darker border-white/10" 
+                    className="bg-cinezed-darker border-white/10 h-9" 
                     disabled={isLoading}
                   />
                 </FormControl>
-                <FormMessage className="text-xs mt-1" />
+                <FormMessage className="text-xs absolute mt-1" />
               </FormItem>
             )}
           />
-          <Button type="submit" disabled={isLoading}>
-            <Mail className="mr-2 h-4 w-4" />
-            Subscribe
+          <Button type="submit" disabled={isLoading} size="sm" className="px-3">
+            <Mail className="h-4 w-4" />
+            <span className="sr-only md:not-sr-only md:ml-2">Subscribe</span>
           </Button>
         </form>
       </Form>
