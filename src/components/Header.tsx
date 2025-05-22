@@ -12,17 +12,6 @@ const Header: React.FC = () => {
             0x<span className="text-cinezed-accent">CineZed</span>
           </h1>
         </div>
-        <div className="hidden md:flex items-center gap-6">
-          <a href="#" className="text-gray-300 hover:text-white transition-colors">
-            Movies
-          </a>
-          <a href="#" className="text-gray-300 hover:text-white transition-colors">
-            Series
-          </a>
-          <a href="#" className="text-gray-300 hover:text-white transition-colors">
-            Anime
-          </a>
-        </div>
       </div>
     </header>
   );
