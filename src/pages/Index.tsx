@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import RecommendationGrid from "@/components/RecommendationGrid";
+import MediaDetailsModal from "@/components/MediaDetailsModal";
+import Footer from "@/components/Footer";
+import { RecommendationProvider, useRecommendationContext } from "@/context/RecommendationContext";
+
+const IndexContent: React.FC = () => {
+  const { results, isLoading, genreMap } = useRecommendationContext();
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen flex flex-col bg-cinezed-dark text-white">
+      <Header />
+      <Hero />
+      <RecommendationGrid 
+        results={results} 
+        isLoading={isLoading} 
+        genreMap={genreMap} 
+      />
+      <MediaDetailsModal />
+      <Footer />
     </div>
+  );
+};
+
+const Index: React.FC = () => {
+  return (
+    <RecommendationProvider>
+      <IndexContent />
+    </RecommendationProvider>
   );
 };
 
